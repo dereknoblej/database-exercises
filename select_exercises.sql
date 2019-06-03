@@ -17,4 +17,8 @@ select name as 'Albums released in the 1990s'
 from albums
 where release_date >= 1990;
 
+select name as 'Albums with the genre of Rock'
+from albums
+where genre = 'rock';
+
 # select * from albums;
