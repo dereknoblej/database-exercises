@@ -4,7 +4,7 @@ select * from dept_manager;
 select * from salaries;
 
 select employees.first_name from employees
-where hire_date in (
+where hire_date = (
   select hire_date
   from employees
   where emp_no = 101010);
@@ -14,6 +14,7 @@ where emp_no in (
   select emp_no
   from employees
   where first_name = 'Aamod'
+
   );
 
 select concat(employees.first_name, ' ', employees.last_name) as 'female managers' from employees
@@ -21,6 +22,18 @@ where gender = 'F' and emp_no in (
   select emp_no
   from dept_manager
   where dept_manager.to_date >= now()
+  );
+
+select departments.dept_name from departments
+where dept_no in (
+  select dept_no
+  from dept_manager
+  where dept_manager.to_date >= now() and
+        emp_no in (
+          select emp_no
+          from employees
+          where gender = 'f'
+      )
   );
 
 select concat(employees.first_name, ' ', employees.last_name) from employees
