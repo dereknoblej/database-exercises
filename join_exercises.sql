@@ -33,3 +33,5 @@ join employees e on dm.emp_no= e.emp_no
 join salaries s on e.emp_no = s.emp_no
 where s.to_date >= now() and dm.to_date >= now();
 
+select employees.first_name, departments.dept_name, employees.first_name from departments
+
