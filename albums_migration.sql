@@ -9,5 +9,6 @@ name  varchar(255) not null,
 release_date int not null,
 sales decimal(10, 2),
 genre varchar(255) not null,
-primary key(id)
+primary key(id),
+unique (name, artist)
 );
