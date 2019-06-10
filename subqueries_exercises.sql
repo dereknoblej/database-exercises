@@ -24,11 +24,11 @@ where gender = 'F' and emp_no in (
   where dept_manager.to_date >= now()
   );
 
-select departments.dept_name from departments
+select dept_name from departments
 where dept_no in (
   select dept_no
   from dept_manager
-  where dept_manager.to_date >= now() and
+  where to_date >= now() and
         emp_no in (
           select emp_no
           from employees
